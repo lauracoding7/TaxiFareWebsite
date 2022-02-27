@@ -79,8 +79,13 @@ params = {
 
 #3. Let's call our API using the `requests` package...
 
+    
+
 response = requests.get(url, params=params)
 #response.json()
+
+if st.button('prediction'):
+    st.write(response.json()["fare"])
 
 def get_map_data():
 
@@ -95,9 +100,7 @@ df = get_map_data()
 
 st.map(df)
 
-if st.button('prediction'):
-    st.write(response.json()["fare"])
-    
+
 
 
 #4. Let's retrieve the prediction from the **JSON** returned by the API...
